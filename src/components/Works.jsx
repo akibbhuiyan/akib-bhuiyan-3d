@@ -1,7 +1,7 @@
 import Tilt from "react-tilt";
 import { motion } from "framer-motion";
 import { styles } from "../styles";
-import { github } from "../assets";
+import { github, eye } from "../assets";
 import { SectionWrapper } from "../hoc";
 import { projects } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
@@ -12,6 +12,7 @@ const ProjectCard = ({
   tags,
   image,
   source_code_link,
+  live_project_link,
 }) => {
   return (
     <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
@@ -33,6 +34,16 @@ const ProjectCard = ({
               <img
                 src={github}
                 alt="github"
+                className="w-1/2 h-1/2 object-contain"
+              />
+            </div>
+            <div
+              className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer ml-2"
+              onClick={() => window.open(live_project_link, "_blank")}
+            >
+              <img
+                src={eye}
+                alt="Live Preview"
                 className="w-1/2 h-1/2 object-contain"
               />
             </div>
